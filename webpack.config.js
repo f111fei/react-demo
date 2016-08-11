@@ -5,20 +5,26 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
-	context: path.join(__dirname, 'src'),
+    target: 'electron',
+    context: path.join(__dirname, 'src'),
     resolve: {
-        extensions: ['', '.js', '.jsx', '.ts', '.tsx']
+        extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
+        root: [path.join(__dirname, './src')]
     },
     module: {
         loaders: [
             { test: /\.ts(x?)$/, loader: 'ts' },
+            { test: /\.json$/, loader: 'json' },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('css') }
         ]
     },
     entry: {
-        main: [
-            './main.tsx'
+        'app/app': [
+            './app/app'
         ],
+        'app/electron-main/main': [
+            './app/electron-main/main'
+        ]
     },
     output: {
         path: path.join(__dirname, 'out'),
@@ -27,9 +33,10 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['out']),
-		new CopyWebpackPlugin([
-			{ from: '**/*.html'},
-		]),
-		new ExtractTextPlugin('./media/main.css')
+        new CopyWebpackPlugin([
+            { from: '**/*.html' },
+            { from: 'main.js'}
+        ]),
+        new ExtractTextPlugin('./app/electron-browser/media/main.css')
     ]
 };

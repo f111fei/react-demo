@@ -1,13 +1,13 @@
 {
-  "name": "react-demo",
+  "name": "electron-react-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "./out/index.js",
+  "main": "./out/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "webpack --config webpack.config.js --progress --colors --watch"
   },
-  "author": "",
+  "author": "xzper",
   "license": "ISC",
   "dependencies": {
     "react": "^15.3.0",
