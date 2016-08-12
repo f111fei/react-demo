@@ -14,7 +14,6 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.ts(x?)$/, loader: 'ts' },
-            { test: /\.json$/, loader: 'json' },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('css') }
         ]
     },

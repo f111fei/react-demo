@@ -10,9 +10,12 @@
   "author": "xzper",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.14.2",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-router": "^2.6.1"
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.10",
@@ -20,6 +23,7 @@
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "ts-loader": "^0.8.2",
+    "tslint": "^3.14.0",
     "typescript": "^1.8.10",
     "webpack": "^1.13.1"
   }

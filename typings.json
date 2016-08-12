@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "electron": "registry:env/electron#0.37.6+20160723033700",
+    "lodash": "registry:dt/lodash#4.14.0+20160802150749",
     "node": "registry:dt/node#6.0.0+20160802155038",
     "react": "registry:dt/react#0.14.0+20160802191555",
     "react-bootstrap": "registry:dt/react-bootstrap#0.0.0+20160728054947",
