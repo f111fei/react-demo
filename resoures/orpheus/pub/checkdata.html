@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>网易音乐</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body id="music-163-com" style="overflow:hidden">
+    <script>
+    (function(){
+        var getNow = function(){
+            var now = new Date();
+            return now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate()+' '+now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+        };
+        // 添加日志接口
+        window.logger = {};
+        window.logger.warn = (function(){
+            var _noop = function(){return !0;};
+            return function(_msg){
+                channel.call('app.log', _noop, ['checkdata|'+getNow()+'|'+JSON.stringify(_msg)]);
+            };
+        })();
+        // 获取G_PATH
+        var _search = location.search;
+        if(!!_search){
+            // 处理?
+            if(_search.charAt(0) == '?') _search = _search.substr(1);
+            var _arr = _search.split('&');
+            for(var i=0, ii=_arr.length; i<ii; i++){
+                var _kv = (_arr[i]||'').split('=');
+                if(_kv&&_kv[0]&&_kv[1]&&_kv[0].toUpperCase()=='G_PATH'){
+                    window.G_PATH = decodeURIComponent(_kv[1]);
+                }
+            }
+        }
+        if(!window.G_PATH) window.G_PATH = 'orpheus://orpheus/pub/';
+        logger.warn('G_PATH='+window.G_PATH);
+    })();
+    (function(){
+        logger.warn('check data begin');
+        var _href = window.G_PATH + 'app.html',
+            _mxblk= 100,
+            _skey = {
+                user:'NM_HOST',
+                dataVersion:'NM_DATA_VERSION',
+                dataState:'NM_DATA_UPDATE_STATE',
+                track:'NM_TRACK',
+                queue:'NM_QUEUE',
+                history:'NM_HISTORY',
+                offline:'NM_OFFLINE',
+                localCount:'NM_LOCAL_TRACK_COUNT',
+                playlistOfflineTrack:'NM_PLAYLIST_OFFLINE',
+                newalbum:'newalbum-week-list'
+            },
+            _conf = {
+                version:20150115,
+                tables:[{
+                    name:'web_offline_track',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_offline_track` (`id` VARCHAR(40) NOT NULL, `type` INT NULL, `type_extra` BIGINT NULL, `track_id` BIGINT NULL, `detail` TEXT NULL, `size` INT NULL, `dfsid` BIGINT NULL, `bitrate` INT NULL, `state` INT NULL, `download_time` INT NULL, `complete_time` INT NULL, `source_href` TEXT NULL, `source_text` TEXT NULL, `source_extra` TEXT NULL, `album_id` VARCHAR(40) NULL, `relative_path` TEXT NULL, `track_name` TEXT NULL, `artist_name` TEXT NULL, `album_name` TEXT NULL, `id3_state` INT DEFAULT 0, PRIMARY KEY (`id`)); CREATE INDEX IF NOT EXISTS `index_track_name` ON `web_offline_track` (`track_name` ASC); CREATE INDEX IF NOT EXISTS `index_artist_name` ON `web_offline_track` (`artist_name` ASC); CREATE INDEX IF NOT EXISTS `index_album_name` ON `web_offline_track` (`album_name` ASC); CREATE INDEX IF NOT EXISTS `index_size` ON `web_offline_track` (`size` ASC); CREATE INDEX IF NOT EXISTS `index_download_time` ON `web_offline_track` (`download_time` ASC); CREATE INDEX IF NOT EXISTS `index_complete_time` ON `web_offline_track` (`complete_time` ASC);',
+                    createSQL:'DROP TABLE IF EXISTS `web_offline_track`;CREATE TABLE IF NOT EXISTS `web_offline_track` (`id` VARCHAR(40) NOT NULL, `type` INT NULL, `type_extra` BIGINT NULL, `track_id` BIGINT NULL, `detail` TEXT NULL, `size` INT NULL, `dfsid` BIGINT NULL, `bitrate` INT NULL, `state` INT NULL, `download_time` INT NULL, `complete_time` INT NULL, `source_href` TEXT NULL, `source_text` TEXT NULL, `source_extra` TEXT NULL, `album_id` VARCHAR(40) NULL, `relative_path` TEXT NULL, `track_name` TEXT NULL, `artist_name` TEXT NULL, `album_name` TEXT NULL, `id3_state` INT DEFAULT 0, PRIMARY KEY (`id`)); CREATE INDEX IF NOT EXISTS `index_track_name` ON `web_offline_track` (`track_name` ASC); CREATE INDEX IF NOT EXISTS `index_artist_name` ON `web_offline_track` (`artist_name` ASC); CREATE INDEX IF NOT EXISTS `index_album_name` ON `web_offline_track` (`album_name` ASC); CREATE INDEX IF NOT EXISTS `index_size` ON `web_offline_track` (`size` ASC); CREATE INDEX IF NOT EXISTS `index_download_time` ON `web_offline_track` (`download_time` ASC); CREATE INDEX IF NOT EXISTS `index_complete_time` ON `web_offline_track` (`complete_time` ASC);'
+                },{
+                    name:'web_playlist_order',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_playlist_order` (`playlist_id` BIGINT NOT NULL, `field` VARCHAR(40) NULL, `order` VARCHAR(40) NULL, PRIMARY KEY (`playlist_id`));',
+                    createSQL:'DROP TABLE IF EXISTS `web_playlist_order`;CREATE TABLE IF NOT EXISTS `web_playlist_order` (`playlist_id` BIGINT NOT NULL, `field` VARCHAR(40) NULL, `order` VARCHAR(40) NULL, PRIMARY KEY (`playlist_id`));'
+                },{
+                    name:'web_map',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_map` (`key` TEXT NOT NULL, `value` TEXT NULL, PRIMARY KEY (`key`));',
+                    createSQL:'DROP TABLE IF EXISTS `web_map`;CREATE TABLE IF NOT EXISTS `web_map` (`key` TEXT NOT NULL, `value` TEXT NULL, PRIMARY KEY (`key`));'
+                },{
+                    name:'web_track',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_track` (`tid` INTERGER NOT NULL, `version` INTERGER NOT NULL DEFAULT 0, `track` TEXT NOT NULL DEFAULT "", PRIMARY KEY (`tid`));',
+                    createSQL:'DROP TABLE IF EXISTS `web_track`;CREATE TABLE IF NOT EXISTS `web_track` (`tid` INTERGER NOT NULL, `version` INTERGER NOT NULL DEFAULT 0, `track` TEXT NOT NULL DEFAULT "", PRIMARY KEY (`tid`));'
+                },{
+                    name:'web_playlist_track',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_playlist_track` (`pid` INTERGER NOT NULL DEFAULT 0, `tid` INTERGER NOT NULL DEFAULT 0, `version` INTERGER NOT NULL DEFAULT 1, `order` INTERGER NOT NULL DEFAULT 0);CREATE INDEX IF NOT EXISTS `index_order` ON `web_playlist_track` (`order` ASC);',
+                    createSQL:'DROP TABLE IF EXISTS `web_playlist_track`;CREATE TABLE IF NOT EXISTS `web_playlist_track` (`pid` INTERGER NOT NULL DEFAULT 0, `tid` INTERGER NOT NULL DEFAULT 0, `version` INTERGER NOT NULL DEFAULT 1, `order` INTERGER NOT NULL DEFAULT 0);CREATE INDEX IF NOT EXISTS `index_order` ON `web_playlist_track` (`order` ASC);'
+                },{
+                    name:'web_playlist',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_playlist` (`pid` INTERGER NOT NULL, `playlist` TEXT NOT NULL DEFAULT "", PRIMARY KEY (`pid`));',
+                    createSQL:'DROP TABLE IF EXISTS `web_playlist`;CREATE TABLE IF NOT EXISTS `web_playlist` (`pid` INTERGER NOT NULL, `playlist` TEXT NOT NULL DEFAULT "", PRIMARY KEY (`pid`));'
+                },{
+                    name:'web_user_playlist',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_user_playlist` (`uid` INTERGER NOT NULL, `pids` TEXT NOT NULL DEFAULT "", PRIMARY KEY (`uid`));',
+                    createSQL:'DROP TABLE IF EXISTS `web_user_playlist`;CREATE TABLE IF NOT EXISTS `web_user_playlist` (`uid` INTERGER NOT NULL, `pids` TEXT NOT NULL DEFAULT "", PRIMARY KEY (`uid`));'
+                },{
+                    name:'web_cloud_track',
+                    checkSQL:'CREATE TABLE IF NOT EXISTS `web_cloud_track` (`uid` INTERGER NOT NULL DEFAULT 0, `id` VARCHAR(40) NOT NULL DEFAULT "", `fileId` VARCHAR(40) NOT NULL DEFAULT "", `file` TEXT NOT NULL DEFAULT "", `fileExt` TEXT NOT NULL DEFAULT "", `size` INTERGER NOT NULL DEFAULT 0, `bitrate` INTERGER NOT NULL DEFAULT 0, `time` INTERGER NOT NULL DEFAULT 0, `name` TEXT NOT NULL DEFAULT "", `album` TEXT NOT NULL DEFAULT "", `artist` TEXT NOT NULL DEFAULT "", `track` TEXT NOT NULL DEFAULT "", `state` INTERGER NOT NULL DEFAULT 0, `version` INTERGER NOT NULL DEFAULT 0, `mst` INTERGER NOT NULL DEFAULT 0, `cueFile` TEXT NOT NULL DEFAULT "", `offset` INTERGER NOT NULL DEFAULT 0, `duration` INTERGER NOT NULL DEFAULT 0, PRIMARY KEY (`uid`, `id`)); CREATE INDEX IF NOT EXISTS `index_name` ON `web_cloud_track` (`name` ASC); CREATE INDEX IF NOT EXISTS `index_album` ON `web_cloud_track` (`album` ASC); CREATE INDEX IF NOT EXISTS `index_artist` ON `web_cloud_track` (`artist` ASC); CREATE INDEX IF NOT EXISTS `index_fileExt` ON `web_cloud_track` (`fileExt` ASC); CREATE INDEX IF NOT EXISTS `index_size` ON `web_cloud_track` (`size` ASC); CREATE INDEX IF NOT EXISTS `index_time` ON `web_cloud_track` (`time` ASC);',
+                    createSQL:'DROP TABLE IF EXISTS `web_cloud_track`; CREATE TABLE IF NOT EXISTS `web_cloud_track` (`uid` INTERGER NOT NULL DEFAULT 0, `id` VARCHAR(40) NOT NULL DEFAULT "", `fileId` VARCHAR(40) NOT NULL DEFAULT "", `file` TEXT NOT NULL DEFAULT "", `fileExt` TEXT NOT NULL DEFAULT "", `size` INTERGER NOT NULL DEFAULT 0, `bitrate` INTERGER NOT NULL DEFAULT 0, `time` INTERGER NOT NULL DEFAULT 0, `name` TEXT NOT NULL DEFAULT "", `album` TEXT NOT NULL DEFAULT "", `artist` TEXT NOT NULL DEFAULT "", `track` TEXT NOT NULL DEFAULT "", `state` INTERGER NOT NULL DEFAULT 0, `version` INTERGER NOT NULL DEFAULT 0, `mst` INTERGER NOT NULL DEFAULT 0, `cueFile` TEXT NOT NULL DEFAULT "", `offset` INTERGER NOT NULL DEFAULT 0, `duration` INTERGER NOT NULL DEFAULT 0, PRIMARY KEY (`uid`, `id`)); CREATE INDEX IF NOT EXISTS `index_name` ON `web_cloud_track` (`name` ASC); CREATE INDEX IF NOT EXISTS `index_album` ON `web_cloud_track` (`album` ASC); CREATE INDEX IF NOT EXISTS `index_artist` ON `web_cloud_track` (`artist` ASC); CREATE INDEX IF NOT EXISTS `index_fileExt` ON `web_cloud_track` (`fileExt` ASC); CREATE INDEX IF NOT EXISTS `index_size` ON `web_cloud_track` (`size` ASC); CREATE INDEX IF NOT EXISTS `index_time` ON `web_cloud_track` (`time` ASC);'
+                }]
+            },
+            _noop = function(){return !0;},
+            _jump = function(){window.location.href = _href;};
+        // 程序启动 需要进行数据版本检查
+        // sql执行接口
+        var _execSQL = function(_id, _sql, _cb){
+            channel.call('storage.execsql', _cb || _noop, [_id, _sql]);
+        };
+        // sql执行回调
+        var _sqlDone = function(_id, _err, _ret){
+            if(!_id) return;
+            switch(_id){
+                case 'checkTableExist':
+                    logger.warn('cb check table exists err:' + _err);
+                    if(_err==0){
+                        _jump();
+                    }else{
+                        logger.warn('检查表存在失败！');
+                        window.location.href = window.G_PATH + 'updatedata.html';
+                    }
+                    break;
+                case 'createTable':
+                    logger.warn('cb create table err:' + _err);
+                    if(_err==0){
+                        logger.warn('create table success and clear data' + _err);
+                        localStorage.setItem(_skey.dataVersion, _conf.version);
+                        // 清理数据
+                        localStorage.removeItem(_skey.track);
+                        for(var i=0;i<_mxblk;i++){
+                            localStorage.removeItem(_skey.track+'_'+i);
+                        }
+                        var _tlist = ['queue','history','offline'];
+                        while(_tlist.length){
+                            localStorage.removeItem(_skey[_tlist.shift()]);
+                        }
+                        for(var x in localStorage){
+                            if(x.indexOf('NM_PLAYLIST_FAV_')==0 || x.indexOf('NM_PLAYLIST_NEW_')==0){
+                                localStorage.removeItem(x);
+                            }
+                        }
+                        localStorage.removeItem(_skey.localCount);
+                        localStorage.removeItem(_skey.playlistOfflineTrack);
+                        localStorage.removeItem(_skey.newalbum);
+                        // 标志数据升级状态2（0-未开始，1-开始，2-完成）
+                        localStorage.setItem(_skey.dataState, 2);
+                        // 跳转到登录页面
+                        _jump();
+                    }else{
+                        logger.warn('create table fail and jump to updatedata page');
+                        // 转数据升级页面
+                        window.location.href = window.G_PATH + 'updatedata.html';
+                    }
+                    break;
+            }
+        };
+        // 注册sql执行回调
+        channel.registerCall('storage.onexecsqldone', _sqlDone.bind(this));
+        // 数据版本检查
+        var _checkData = function(){
+            logger.warn('check data version');
+            var _userExist = !!localStorage.getItem(_skey.user),
+                _oldDataVersion = parseInt(localStorage.getItem(_skey.dataVersion) || 0),
+                _newDataVersion = _conf.version,
+                _updateDataState= parseInt(localStorage.getItem(_skey.dataState) || 0),
+                _needDataUpdate = !1;
+            if(!_userExist){
+                var _key = 'ONCE_CHECK_SETTING',
+                    _data = JSON.parse(localStorage.getItem(_key)) || {};
+                logger.warn('ONCE_CHECK_SETTING ' + localStorage.getItem(_key));
+                _data['Permisson_fm_guide'] = true; //新安装，则允许出私人FM新手引导
+                localStorage.setItem(_key, JSON.stringify(_data));
+            }
+            if(_oldDataVersion != _newDataVersion){
+                _needDataUpdate = !0;
+            }else if(_updateDataState == 1){
+                _needDataUpdate = !0;
+            }
+            logger.warn('check need data update:'+_needDataUpdate);
+            if(!_needDataUpdate){
+                logger.warn('check table exists');
+                // 进行表检查
+                _execSQL('checkTableExist', (function(){
+                    var _sql = '';
+                    _conf.tables.forEach(function(_item){
+                        _sql += _item.checkSQL;
+                    });
+                    return _sql;
+                })());
+            }else{
+                // 非新用户安装
+                if(!!_userExist){
+                    logger.warn('jump to updatedata page');
+                    window.location.href = window.G_PATH + 'updatedata.html';
+                }else{
+                    localStorage.setItem(_skey.dataVersion, _conf.version);
+                    localStorage.setItem(_skey.dataState, 2);
+                    logger.warn('new user, create tabele');
+                    // // 新用户安装 进入创建表流程
+                    // // 标志数据升级状态1（0-未开始，1-开始，2-完成）
+                    // localStorage.setItem(_skey.dataState, 1);
+                    // 创建表（先删除表）
+                    _execSQL('createTable', (function(){
+                        var _sql = '';
+                        _conf.tables.forEach(function(_item){
+                            _sql += _item.checkSQL;
+                        });
+                        return _sql;
+                    })());
+                    _jump();
+                }
+            }
+        }
+        // 检查程序启动类型回调
+        var _cbGetAppStartType = function(_type){
+            if(_type == 'autorun'){
+                localStorage.setItem('NM_AUTO_RUN_AND_LOGIN', !0);
+            }
+            _checkData();
+        };
+        // 检查程序启动类型
+        channel.call('app.getAppStartType', _cbGetAppStartType.bind(this), []);
+    })();
+    </script>
+  </body>
+</html>

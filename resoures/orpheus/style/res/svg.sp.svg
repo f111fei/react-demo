@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="blur-blur">
+            <feGaussianBlur stdDeviation="10" /> </filter>
+    </defs>
+    <symbol id="blur">
+        <title>blur</title>
+    </symbol>
+</svg>
