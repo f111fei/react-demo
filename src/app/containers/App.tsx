@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import {connect} from 'react-redux';
 import {Link, RouteComponentProps} from 'react-router';
 import {AppStore} from 'app/store/state';
+import Header from '../components/Header';
 
 export interface AppProp extends RouteComponentProps<any, any> {
 	store: AppStore;
@@ -11,6 +12,7 @@ export interface AppProp extends RouteComponentProps<any, any> {
 class App extends React.Component<AppProp, any> {
 	public render(): JSX.Element {
 		return (
+			<Header/>
 			<div>
 				<h1>App</h1>
 				<ul>
