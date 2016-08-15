@@ -1,8 +1,7 @@
-import * as electron from 'electron';
+import {BrowserWindow} from 'electron';
 import * as path from 'path';
 import {pkg, rootPath} from 'core/package';
-
-const BrowserWindow = electron.BrowserWindow;    // Module to create native browser window.
+import {IpcService} from './ipc';
 
 const index = path.join(rootPath, './out/app/electron-browser/index.html'); // app/src/ directory
 
@@ -23,3 +22,7 @@ mainWindow.on('closed', () => {
 	// Dereference the window object
 	mainWindow = null;
 });
+
+// IPC events
+const ipcService = new IpcService(mainWindow);
+ipcService.ready();
