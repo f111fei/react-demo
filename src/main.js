@@ -1,10 +1,8 @@
 'use strict';
 
 const path = require('path');
-const os = require('os');
 const electron = require('electron');
 const app = electron.app;              // Module to control application life.
-const BrowserWindow = electron.BrowserWindow;    // Module to create native browser window.
 
 process.env['NODE_ENV'] = 'production'; // Drastically increase performances
 process.env['APP_ROOT'] = path.join(__dirname, '..'); // Remenber app root path.

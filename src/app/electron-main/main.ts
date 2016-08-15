@@ -2,7 +2,6 @@ import * as electron from 'electron';
 import * as path from 'path';
 import {pkg, rootPath} from 'core/package';
 
-const app = electron.app;              // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;    // Module to create native browser window.
 
 const index = path.join(rootPath, './out/app/electron-browser/index.html'); // app/src/ directory
