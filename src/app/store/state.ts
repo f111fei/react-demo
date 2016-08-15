@@ -8,12 +8,12 @@ export interface User {
 	name: string;
 }
 
-export interface PlayList {
+export interface PlayLists {
 	currentTrack: number;
 	tracks: Track[];
 }
 
 export interface AppStore {
 	user: User;
-	playlist: PlayList;
+	playlists: PlayLists;
 };

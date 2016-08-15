@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Route, IndexRedirect} from 'react-router';
 
-import App from '../components/App';
+import App from '../containers/App';
 import About from '../components/About';
 import Inbox from '../components/Inbox';
 import Message from '../components/Message';

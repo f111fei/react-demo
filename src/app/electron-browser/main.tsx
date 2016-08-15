@@ -7,11 +7,11 @@ import {Router, hashHistory} from 'react-router';
 import {Provider} from 'react-redux';
 
 import {createRoutes} from 'app/router/routes';
-import {createStore} from 'app/reducers/store';
+import configureStore from 'app/store/configureStore';
 
 export function startup(): void {
     ReactDOM.render(
-        <Provider store={ createStore() }>
+        <Provider store={ configureStore() }>
             <Router routes={ createRoutes() } history={ hashHistory } />
         </Provider>,
         document.getElementById('wrap')

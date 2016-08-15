@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import {connect} from 'react-redux';
 import {Link, RouteComponentProps} from 'react-router';
-import {AppStore} from 'app/reducers/state';
+import {AppStore} from 'app/store/state';
 
 export interface AppProp extends RouteComponentProps<any, any> {
 	store: AppStore;
