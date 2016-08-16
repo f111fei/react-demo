@@ -3,6 +3,9 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const outPath = path.join(__dirname, 'out');
+const publicPath = outPath.replace(/\\/g, '/') + '/';
+
 module.exports = {
     devtool: 'source-map',
     target: 'electron',
@@ -14,7 +17,9 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.ts(x?)$/, loader: 'ts' },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract('css') }
+            { test: /\.css$/, loader: ExtractTextPlugin.extract('css') },
+            { test: /\.less$/,loader: ExtractTextPlugin.extract('css!less') },
+            { test: /\.(eot|woff|ttf|svg)([\?]?.*)$/, loader: 'file?name=[path][name].[ext]' }
         ]
     },
     entry: {
@@ -26,9 +31,9 @@ module.exports = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'out'),
+        path: outPath,
         filename: '[name].js',
-        publicPath: '/'
+        publicPath: publicPath
     },
     plugins: [
         new CleanWebpackPlugin(['out']),

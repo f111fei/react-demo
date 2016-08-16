@@ -1,4 +1,6 @@
-import './media/global.css';
+import './media/css/bootstrap.css';
+import './media/css/global.css';
+
 import * as ReactDOM from 'react-dom';
 /* tslint:disable no-unused-variable */
 import * as React from 'react';

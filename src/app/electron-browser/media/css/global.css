@@ -1,0 +1,36 @@
+* {
+  -webkit-user-drag: none;
+}
+
+body {
+  background-color: #222225;
+}
+
+body {
+	font-size: 12px;
+	line-height: 1.14;
+	font-family: arial, 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+	outline: 0;
+}
+
+textarea,input,button,select,keygen,legend {
+	font: inherit;
+	outline: 0;
+}
+
+html,body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	position: relative;
+	box-sizing: border-box;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
