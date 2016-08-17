@@ -1,6 +1,20 @@
-.m-header {
+.g-hd {
+	left: 0;
+	right: 0;
+	top: 0;
 	height: 50px;
+	z-index: 150;
 	-webkit-app-region: drag;
+}
+
+.g-hd:after {
+	content: '';
+	position: absolute;
+	top: 48px;
+	left: 0;
+	right: 0;
+	display: none;
+	height: 2px;
 }
 
 .no-drag {
@@ -136,6 +150,16 @@
 	margin: 0 auto;
 }
 
+.m-tool .skin .u-arrlay {
+	top: 42px;
+}
+
+.m-tool .msg .u-tip {
+	left: 20px;
+	top: 8px;
+	line-height: 14px;
+}
+
 .m-tool .user {
 	position: relative;
 	float: left;
@@ -255,6 +279,15 @@
 @icnRed: #b82525;
 @themeC1: #292c33;
 @themeC1-hvr: rgb(red(@themeC1)-21, green(@themeC1)-12, blue(@themeC1)-12);
+
+.g-hd {
+  background: url(../img/topbar_bg.png) no-repeat right center, url(../img/topbar_bg_left.png) repeat-x;
+}
+
+.g-hd:after {
+	display: block;
+	background: -webkit-linear-gradient(left, #660404 0%, #b82525 50%, #660404 100%);
+}
 
 .m-hst .btn svg {
 	fill: fade(#fff, 80%);

@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
+    "classnames": "registry:dt/classnames#0.0.0+20160316155526",
     "electron": "registry:env/electron#0.37.6+20160723033700",
     "lodash": "registry:dt/lodash#4.14.0+20160802150749",
     "node": "registry:dt/node#6.0.0+20160802155038",

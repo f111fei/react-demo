@@ -19,7 +19,7 @@ module.exports = {
             { test: /\.ts(x?)$/, loader: 'ts' },
             { test: /\.css$/, loader: ExtractTextPlugin.extract('css') },
             { test: /\.less$/,loader: ExtractTextPlugin.extract('css!less') },
-            { test: /\.(eot|woff|ttf|svg)([\?]?.*)$/, loader: 'file?name=[path][name].[ext]' }
+            { test: /\.(eot|woff|ttf|png|svg)([\?]?.*)$/, loader: 'file?name=[path][name].[ext]' }
         ]
     },
     entry: {

@@ -1,5 +1,5 @@
 // import './media/css/bootstrap.css';
-import './media/css/global.css';
+import './media/css/global.less';
 
 import * as ReactDOM from 'react-dom';
 /* tslint:disable no-unused-variable */
