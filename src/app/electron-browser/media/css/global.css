@@ -1,9 +1,25 @@
 * {
-  -webkit-user-drag: none;
+	-webkit-user-drag: none;
 }
 
 body {
-  background-color: #222225;
+	background-color: #222225;
+}
+
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu {
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+html,body,fieldset,img,iframe,abbr {
+	border: 0;
+}
+
+body {
+	user-select: none;
+	-webkit-user-select: none;
+	cursor: default;
 }
 
 body {

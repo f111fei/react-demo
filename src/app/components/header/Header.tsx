@@ -17,13 +17,13 @@ export default class Header extends React.Component<any, any> {
 	public render(): JSX.Element {
 		return (
 			<div className="m-header">
-				<div className="m-logo">
+				<div className="m-logo no-drag">
 					<Link to="/inbox">
 						<svg><use xlinkHref={logo_svg}/></svg>
 					</Link>
 				</div>
 				<div className="m-topbox j-topbox">
-					<div className="m-hst">
+					<div className="m-hst no-drag">
 						<span title="后退" className="btn btn-prv j-flag">
 							<svg><use xlinkHref={back_svg}/></svg>
 						</span>
@@ -31,7 +31,7 @@ export default class Header extends React.Component<any, any> {
 							<svg><use xlinkHref={next_svg}/></svg>
 						</span>
 					</div>
-					<div className="m-sch">
+					<div className="m-sch no-drag">
 						<input type="text" className="j-flag j-search-input" placeholder="搜索音乐，歌手，歌词，用户">
 						</input>
 						<span className="sch-btn j-flxg">
@@ -42,11 +42,11 @@ export default class Header extends React.Component<any, any> {
 					</div>
 				</div>
 				<div className="m-tool">
-					<div className="user j-flag">
+					<div className="user j-flag no-drag">
 						<div className="j-pl-click"></div>
 						<i className="u-tip u-tip-sml j-top-fow f-dn"></i>
 					</div>
-					<div className="itm skin j-flag">
+					<div className="itm skin j-flag no-drag">
 						<svg className="btn"><use xlinkHref={skin_svg}/></svg>
 					</div>
 				</div>

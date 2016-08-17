@@ -1,4 +1,4 @@
-import './media/css/bootstrap.css';
+// import './media/css/bootstrap.css';
 import './media/css/global.css';
 
 import * as ReactDOM from 'react-dom';
