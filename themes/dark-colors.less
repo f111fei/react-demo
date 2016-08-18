@@ -1,0 +1,112 @@
+/********************************************************/
+/* 【黑色版】公共色  */
+/********************************************************/
+// 字色
+@fc0: #e2e2e2; //顶级文字
+@fc1: #dcdde4; //一级文字
+@fc1sub: #828385; //次一级，配合黑色 
+@fc2: #2e6bb0; //链接色，强调色
+@fc2-hvr: #2c7ad1;
+@fc3: #828385; //二级文字
+@fc3-hvr: #dcdde4;
+@fc4: #5f5f63;  // 三级文字
+@fc5: #4e4e52; // 四级文字
+@fc6: #b82525; // 警告字色 红色,  @wornRed 出错叹号颜色
+@warnRed: @fc6;
+@fc7: #32343b; // 分隔线
+@fc8: #fff; //黑色背景字色 白色 ?
+@fc8Alpha:fade(#fff, 90%); //?
+@fcPlace: #3f414a; //输入提示色
+@fcDis: #32343b;
+@layerFc1:#a5a7a8;
+
+// 黑白反色
+@revert: @bgc3;
+
+// 图标色
+@icnWhite: fade(#fff, 80%); //图标内的白色
+@icnRed: #b82525;  //固定红色图标
+@icnRed-hvr: #cd2929;
+@icnBlue: fade(#409ed1, 80%); // 图标系蓝色，下载，进度
+@icnGray: #363841; // 灰色图标，字，歌曲列表中灰色图标，节目，本地，云盘等
+@disColor: #32343b; // 不可点字色，图标色，断网，无版权等情况
+@warnRed: #b82525; //警告文字，出错文字
+
+@rankUp: @icnRed; //排行上升
+@rankDown: #2e6bb0; //排行下降
+@rankStop: #686a6e; //排行不动
+@rankNew: #5e9e5f; //新上榜
+@layerIcn: fade(#8f8e94, 70%); //浮层上图标
+
+
+// 背景色
+@bgc0: #000; //?
+@bgc1: #16181c; //默认底色
+@bgc2: #191b1f; //侧栏，个人主页右上角
+@bgc3: #fff; //特殊背景色
+@bgc4: #1c1e23; //标题bar，卡片，弹框背景
+@bgcTab: transparent;	//tab背景色
+@bgcTab-hvr: fade(#fff,5%);	//tab hover
+@bgcTab-sel: #3a3a3f;	//tab选中背景色
+@bgcStab: #23262c;	//小tab
+@bgcStab-sel: #0a0c10;	//小tab选中
+@bgcText: fade(#fff, 7%); //input底色
+@bgcTextDis: fade(@bgc3, 2%); // 禁止输入底色
+@bgcEditor: #1c1e23; //编辑器底色
+@bgcBtmbar: @themeC1; //播放栏颜色
+@bgReply: #1c1e23;	//被回复色块
+@bgcLayer: #2d2f33; //弹窗颜色
+@bgcLybt: #292b2f;	//弹窗重点色
+@bgcCard: fade(@bgc3, 3%); //卡片式
+@bgcCard-hvr: fade(@bgc3, 5%);
+@bgcGuide: #b04b4b; // 新手引导
+
+// 按钮
+@bgcplybtn: fade(@bgc3,7%); // 播放页按钮
+@bgcplybtn-hvr: fade(@bgc3,10%);
+@bgbtn1: #2e4e7e; //按钮1
+@bgbtn1-hvr: #3a6098;
+@bgbtn1-dis:#26354b;
+@bgbtn5: fade(#fff, 7%);	//按钮5
+@bgbtn5-hvr: fade(#fff, 10%);
+@bgbtnRed: #df3b3b; // u-ibtn12
+@bgbtnRed-hvr: #c43333;
+
+// 线色
+@bdcSep: @fc7; //分隔线
+@bdClr0: fade(@bgc3, 7%); // 一般边框，标题线
+@bdClr1: #23262c; // 一般边框，标题线的实色
+@bdClr2: fade(@bgc3, 5%); //下拉浮层线
+@bdClr3: fade(@bgc3, 3%); //itm块间线
+@bdClr4: fade(#000, 20%); // 播放页
+@bdClr5: fade(#000, 10%); // 下拉选择框边框色,输入边框颜色
+@bdClr6: fade(#000, 2%); //浮层标题上下线，浮层标题背景@bgc2
+@bdClrBtn: fade(#000, 10%);	//按钮边框线
+@bdCard: fade(#000, 0%); //卡片边框
+@bdCard-hvr: fade(#000, 20%);
+@bdcTab: fade(#fff, 10%);	//tab描边
+
+// 半透明按钮色 分类标签
+@bgtypetab:#9397a3;
+
+// 特殊色 10%以下透明度
+@specialOpacity:#ccdaff;
+
+// 列表操作
+@listZebras: fade(#fff, 2%); //斑马纹
+@listHover: fade(#fff, 3%);
+@listSlt: fade(#fff, 7%);
+
+
+
+/********************************************************/
+/* 主题色 */
+/********************************************************/
+// H色相, S饱和度，B亮度
+
+// 主题色 
+@themeC1: #292c33; //main theme color
+@themeC1-hvr: rgb(red(@themeC1)-21, green(@themeC1)-12, blue(@themeC1)-12);
+
+@icnTheme: @icnRed; //图标主题色
+@icnTheme-hvr: @icnRed-hvr;
