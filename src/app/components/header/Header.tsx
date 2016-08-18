@@ -35,29 +35,29 @@ export default class Header extends React.Component<any, any> {
 						<SVGButton href={svg.logo}/>
 					</Link>
 				</div>
-				<div className="m-topbox j-topbox">
+				<div className="m-topbox">
 					<div className="m-hst no-drag">
-						<span title="后退" className="btn btn-prv j-flag">
+						<span title="后退" className="btn btn-prv">
 							<SVGButton href={svg.back}/>
 						</span>
-						<span title="前进" className="btn btn-nxt z-dis j-flag">
+						<span title="前进" className="btn btn-nxt z-dis">
 							<SVGButton href={svg.next}/>
 						</span>
 					</div>
 					<div className="m-sch no-drag">
-						<input type="text" className="j-flag j-search-input" placeholder="搜索音乐，歌手，歌词，用户">
+						<input type="text" placeholder="搜索音乐，歌手，歌词，用户">
 						</input>
-						<span className="sch-btn j-flxg">
+						<span className="sch-btn">
 							<SVGButton href={svg.search}/>
 						</span>
-						<div className="u-arrlay m-schlist j-flag j-search-body f-dn">
+						<div className="u-arrlay m-schlist f-dn">
 						</div>
 					</div>
 				</div>
 				<div className="m-tool">
-					<div className="user j-flag no-drag">
+					<div className="user no-drag">
 						<div className="j-pl-click"></div>
-						<i className="u-tip u-tip-sml j-top-fow f-dn"></i>
+						<i className="u-tip u-tip-sml f-dn"></i>
 						<Link className="face u-face" to="#/m/personal/?uid=0">
 							<div className="wrap">
 								<img src={defaultFace}/>
@@ -70,10 +70,10 @@ export default class Header extends React.Component<any, any> {
 							</span>
 						</div>
 					</div>
-					<div className="itm skin j-flag no-drag">
+					<div className="itm skin no-drag">
 						<SVGButton className="btn" href={svg.skin}/>
 					</div>
-					<div className="itm msg j-flag no-drag">
+					<div className="itm msg no-drag">
 						<SVGButton className="btn" href={svg.msg}/>
 						<span className="u-tip" style={{ display: "none" }}>0</span>
 					</div>

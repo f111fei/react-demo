@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Link, RouteComponentProps} from 'react-router';
 import {AppStore} from 'app/store/state';
 import Header from '../components/header/Header';
+import SideBar from '../components/sidebar/SideBar';
 
 export interface AppProp extends RouteComponentProps<any, any> {
 	store: AppStore;
@@ -14,12 +15,7 @@ class App extends React.Component<AppProp, any> {
 		return (
 			<div>
 				<Header/>
-				<h1>App</h1>
-				<ul>
-					<li><Link to="/about">About</Link></li>
-					<li><Link to="/inbox">Inbox</Link></li>
-				</ul>
-				{this.props.children}
+				<SideBar/>
 			</div>
 		);
 	}

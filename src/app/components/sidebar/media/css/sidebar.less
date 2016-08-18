@@ -1,0 +1,348 @@
+.m-nav {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	overflow: hidden;
+	overflow-y: overlay;
+}
+
+.m-nav-s {
+	bottom: 59px;
+}
+
+.m-nav h2 {
+	position: relative;
+	height: 23px;
+	margin-top: 19px;
+	padding: 0 10px;
+}
+
+.m-nav h2.z-first {
+	margin-top: 9px;
+}
+
+.m-nav .newlist {
+	position: absolute;
+	top: -6px;
+	right: 28px;
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	z-index: 1;
+	border-radius: 50%;
+	border: 6px solid transparent;
+	background-clip: padding-box;
+	text-indent: -9999px;
+}
+
+.m-nav .newlist:before,.m-nav .newlist:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 6px;
+	width: 2px;
+	height: 8px;
+}
+
+.m-nav .newlist:after {
+	top: 6px;
+	left: 3px;
+	width: 8px;
+	height: 2px;
+}
+
+.m-nav li {
+	position: relative;
+}
+
+.m-nav li a,.m-nav li .edt {
+	position: relative;
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	padding: 0 10px 0 44px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.m-nav li.z-sel a::before,.m-nav li.z-menu a::before {
+	content: '';
+	position: absolute;
+	width: 3px;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.m-nav li svg {
+	position: absolute;
+	top: 50%;
+	left: 17px;
+	width: 18px;
+	height: 18px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+.m-nav li input[type=text] {
+	width: 125px;
+	margin: 0 0 0 -4px;
+	padding: 3px;
+	line-height: 15px;
+}
+
+.m-nav ul {
+	margin: 0 0 10px;
+}
+
+.m-nav ul.my li a {
+	padding-right: 10px;
+}
+
+.m-nav ul li .icn {
+	display: none;
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	margin-top: -6px;
+}
+
+.m-nav ul li.z-show a {
+	padding-right: 33px;
+}
+
+.m-nav ul li.z-scan .u-icn-scan {
+	display: inline-block;
+}
+
+.m-nav li .new svg {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+}
+
+.m-nav li .state {
+	display: none;
+	position: absolute;
+	right: 13px;
+	width: 14px;
+	height: 14px;
+}
+
+.m-nav li .state svg {
+	width: 14px;
+	height: 14px;
+	left: auto;
+}
+
+.m-nav li.z-ply .state {
+	display: block;
+}
+
+.m-nav ul.z-hide {
+	display: none;
+}
+
+.m-nav .u-dot {
+	display: none;
+}
+
+.m-nav .hastip {
+	position: relative;
+}
+
+.m-nav .hastip .u-tip {
+	margin: -5px 0 0 0;
+}
+
+.m-nav .hastip .u-dot {
+	margin: 7px 0 0 4px;
+	display: inline-block;
+}
+
+.m-nav .ctrl {
+	top: -7px;
+	right: 0;
+	left: 0;
+	height: 24px;
+}
+
+.m-nav .ctrl svg {
+	float: right;
+	width: 10px;
+	height: 10px;
+	margin: 9px 16px 0 0;
+}
+
+.m-nav .ctrl.z-fold svg {
+	transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+}
+
+.m-nav .z-import-empty h2.fav,.m-nav .z-import-empty div.favst {
+	display: none;
+}
+
+.m-nav .import {
+	display: none;
+	text-align: center;
+}
+
+.m-nav .import .btn {
+	padding: 0;
+	width: 88px;
+	margin: 65px 0 10px;
+}
+
+.m-nav .z-import-empty .import {
+	display: block;
+}
+
+.m-nav ul.my li.lke a::before {
+	background-position: -92px -113px;
+}
+
+.m-nav ul.my .lke.z-sel a::before,.m-nav ul.my .lke.z-menu a::before {
+	background-position-y: -143px;
+}
+
+/* default-color_config */
+@import '~common-colors.less';
+
+.m-nav::-webkit-scrollbar-track {
+	background: @bgc2;
+}
+
+.m-nav li a, .m-nav li a svg {
+	color: #5c5c5c;
+	fill: #5c5c5c;
+}
+
+.m-nav li a:hover, .m-nav li a:hover svg {
+	color: #000;
+	fill: #000;
+}
+
+.m-nav li.z-sel a {
+	background: fade(@bgc3, 6%);
+	color: #000;
+}
+
+.m-nav li.z-sel a::before {
+	background-color: @icnTheme;
+}
+
+.m-nav li.z-sel svg {
+	fill: #000;
+}
+
+.m-nav h2 {
+	color: #7d7d7d;
+}
+
+.m-nav .newlist {
+	background-color: fade(#000, 15%);
+}
+
+.m-nav .newlist:hover {
+	background-color: fade(#000, 30%);
+}
+
+.m-nav .newlist:before, .m-nav .newlist:after {
+	background: @bgc2;
+}
+
+.m-nav li input[type=text] {
+	background: @bgcText;
+	border: 1px solid @bdClr1;
+}
+
+.m-nav ul.my li.z-offline a {
+	color: @fc4
+}
+
+.m-nav li .state svg {
+	fill: @themeC1;
+}
+
+.m-nav .ctrl svg {
+	fill: fade(#000, 20%);
+}
+
+.m-nav .ctrl:hover svg {
+	fill: fade(#000, 40%);
+}
+
+/* dark-color_config */
+@import '~dark-colors.less';
+
+.m-nav::-webkit-scrollbar-track {
+	background: @bgc2;
+}
+
+.m-nav h2 {
+	color: #7c7c7c;
+}
+
+.m-nav li a, .m-nav li a svg {
+	color: #adafb2;
+	fill: #adafb2;
+}
+
+.m-nav li a:hover, .m-nav li a:hover svg {
+	color: #dcdde3;
+	fill: #dcdde3;
+}
+
+.m-nav li.z-sel a {
+	background: fade(@bgc3, 6%);
+	color: #dcdde3;
+}
+
+.m-nav li.z-sel a::before {
+	background-color: @icnTheme;
+}
+
+.m-nav li.z-sel svg {
+	fill: #dcdde3;
+}
+
+.m-nav .newlist {
+	background-color: fade(#fff, 15%);
+}
+
+.m-nav .newlist:hover {
+	background-color: fade(#fff, 30%);
+}
+
+.m-nav .newlist:before, .m-nav .newlist:after {
+	background: @bgc2;
+}
+
+.m-nav li input[type=text] {
+	background: @bgcText;
+	border: 1px solid @bdClr1;
+}
+
+.m-nav ul.my li.z-offline a {
+	color: @fc4
+}
+
+.m-nav .ctrl svg {
+	fill: fade(#fff, 20%);
+}
+
+.m-nav .ctrl:hover svg {
+	fill: fade(#fff, 30%);
+}
+
+.m-nav li .state svg {
+	fill: @icnTheme;
+}

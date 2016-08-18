@@ -8,8 +8,65 @@ html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,tab
 	outline: none;
 }
 
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details {
+	display: block;
+}
+
 html,body,fieldset,img,iframe,abbr {
 	border: 0;
+}
+
+i,cite,em,var,address,dfn {
+	font-style: normal;
+}
+
+summary {
+	outline: 0;
+}
+
+li {
+	list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,small {
+	font-size: 100%;
+}
+
+sup,sub {
+	font-size: 83%;
+}
+
+pre,code,kbd,samp {
+	font-family: inherit;
+}
+
+q:before,q:after {
+	content: none;
+}
+
+textarea {
+	overflow: auto;
+	resize: none;
+}
+
+label,summary {
+	cursor: default;
+}
+
+a,button {
+	cursor: pointer;
+}
+
+button,input {
+	box-sizing: content-box;
+}
+
+h1,h2,h3,h4,h5,h6,em,strong,b {
+	font-weight: normal;
+}
+
+del,ins,u,s,a,a:hover {
+	text-decoration: none;
 }
 
 body {
@@ -355,10 +412,19 @@ a:focus {
 	height: 6px;
 }
 
-/* default-color_config */
+.u-dot {
+	position: absolute;
+	z-index: 99;
+	display: inline-block;
+	height: 6px;
+	width: 6px;
+	padding: 0;
+	line-height: 0;
+	border-radius: 4px;
+}
 
-@fc1: #333;
-@bgc1: #fafafa;
+/* default-color_config */
+@import '~common-colors.less';
 
 body {
 	background: @bgc1;
@@ -368,7 +434,46 @@ body,textarea,input,button,select,keygen,legend {
 	color: @fc1;
 }
 
-/* dark-color_config */
+::-webkit-scrollbar-track {
+	background: @bgc1;
+}
 
-@fc1: #dcdde4;
-@bgc1: #16181c;
+::-webkit-scrollbar-thumb {
+	background: @bdClr1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #cfcfd1;
+}
+
+/* dark-color_config */
+@import '~dark-colors.less';
+
+.dark-theme {
+	height: 100%;
+}
+
+body .dark-theme {
+	background: @bgc1;
+	color: @fc1;
+}
+
+.dark-theme {
+
+textarea,input,button,select,keygen,legend {
+	color: @fc1;
+}
+
+::-webkit-scrollbar-track {
+	background: @bgc1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: fade(#fff,10%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: fade(#fff,15%);
+}
+
+}

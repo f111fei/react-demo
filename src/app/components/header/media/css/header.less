@@ -215,10 +215,7 @@
 }
 
 /* default-color_config */
-
-@themeC1: #c72e2e;
-@themeSearch: fade(#000, 15%);
-@themeC1-hvr: rgb(red(@themeC1) - 21, green(@themeC1) - 12, blue(@themeC1) - 12);
+@import '~common-colors.less';
 
 .m-logo svg,
 .m-hst .btn svg,
@@ -274,11 +271,7 @@
 }
 
 /* dark-color_config */
-
-@fc1: #dcdde4;
-@icnRed: #b82525;
-@themeC1: #292c33;
-@themeC1-hvr: rgb(red(@themeC1)-21, green(@themeC1)-12, blue(@themeC1)-12);
+@import '~dark-colors.less';
 
 .g-hd {
   background: url(../img/topbar_bg.png) no-repeat right center, url(../img/topbar_bg_left.png) repeat-x;
