@@ -1,0 +1,65 @@
+@import '~dark/color-variables';
+
+.m-nav::-webkit-scrollbar-track {
+	background: @bgc2;
+}
+
+.m-nav li a, .m-nav li a svg {
+	color: #adafb2;
+	fill: #adafb2;
+}
+
+.m-nav li a:hover, .m-nav li a:hover svg {
+	color: #dcdde3;
+	fill: #dcdde3;
+}
+
+.m-nav li.z-sel a {
+	background: fade(@bgc3, 6%);
+	color: #dcdde3;
+}
+
+.m-nav li.z-sel a::before {
+	background-color: @icnTheme;
+}
+
+.m-nav li.z-sel svg {
+	fill: #dcdde3;
+}
+
+.m-nav h2 {
+	color: #7c7c7c;
+}
+
+.m-nav .newlist {
+	background-color: fade(#fff, 15%);
+}
+
+.m-nav .newlist:hover {
+	background-color: fade(#fff, 30%);
+}
+
+.m-nav .newlist:before, .m-nav .newlist:after {
+	background: @bgc2;
+}
+
+.m-nav li input[type=text] {
+	background: @bgcText;
+	border: 1px solid @bdClr1;
+}
+
+.m-nav ul.my li.z-offline a {
+	color: @fc4
+}
+
+.m-nav li .state svg {
+	fill: @icnTheme;
+}
+
+.m-nav .ctrl svg {
+	fill: fade(#fff, 20%);
+}
+
+.m-nav .ctrl:hover svg {
+	fill: fade(#fff, 30%);
+}

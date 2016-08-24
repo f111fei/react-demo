@@ -1,4 +1,5 @@
 var path = require('path');
+var fs = require('fs');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -7,8 +8,9 @@ const outPath = path.join(__dirname, 'out');
 const publicPath = outPath.replace(/\\/g, '/') + '/';
 
 const extractStyle = new ExtractTextPlugin('./app/electron-browser/media/main.css');
+const themes = path.join(__dirname, './src/themes');
 
-module.exports = {
+const config = {
     devtool: 'source-map',
     target: 'electron',
     context: path.join(__dirname, 'src'),
@@ -16,7 +18,7 @@ module.exports = {
         extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
         root: [
             path.join(__dirname, './src'),
-            path.join(__dirname, './themes')
+            themes
         ]
     },
     module: {
@@ -31,7 +33,8 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loader: extractStyle.extract('css!less')
+                loader: extractStyle.extract('css!less'),
+                exclude: [themes]
             },
             {
                 test: /\.(eot|woff|ttf|png|svg)([\?]?.*)$/,
@@ -45,6 +48,9 @@ module.exports = {
         ],
         'app/electron-main/main': [
             './app/electron-main/main'
+        ],
+        'themes/index': [
+            './themes/index'
         ]
     },
     output: {
@@ -61,3 +67,23 @@ module.exports = {
         extractStyle
     ]
 };
+
+fs.readdirSync(themes).forEach(function (name) {
+    var theme = path.join(themes, name);
+    if (fs.statSync(theme).isFile()) {
+        return;
+    }
+    const extractPlugin = new ExtractTextPlugin('./themes/' + name + '/index.css');
+    const themeLoader = {
+        test: /\.less$/,
+        loader: extractPlugin.extract('css!less'),
+        include: [
+            path.join(themes, name)
+        ]
+    };
+
+    config.plugins.push(extractPlugin);
+    config.module.loaders.push(themeLoader);
+});
+
+module.exports = config;

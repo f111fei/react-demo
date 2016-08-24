@@ -1,0 +1,64 @@
+@import '~dark/color-variables';
+
+.g-hd {
+  background: url(./img/topbar_bg.png) no-repeat right center, url(./img/topbar_bg_left.png) repeat-x;
+}
+
+.g-hd:after {
+	display: block;
+	background: -webkit-linear-gradient(left, #660404 0%, #b82525 50%, #660404 100%);
+}
+
+.m-hst .btn svg {
+	fill: fade(#fff, 80%);
+}
+
+.m-hst .btn {
+	border-color: fade(#000, 30%);
+}
+
+.m-hst .btn:not(.z-dis):active svg {
+	fill: fade(#fff, 20%);
+}
+
+.m-hst .btn:not(.z-dis):active {
+	border-color: #23262c;
+	background: #23262c;
+}
+
+.m-hst .btn:not(.z-dis):active + .btn-nxt {
+	border-left-color: fade(#000, 30%);
+}
+
+.m-sch input {
+	background: fade(#000, 35%);
+	color: rgba(255,255,255,0.8);
+}
+
+.m-sch input::-webkit-input-placeholder {
+	color: rgba(255,255,255,0.2);
+}
+
+.m-tool .itm,
+.m-tool .user .name,
+.m-winctrl .icn {
+	color: #adafb2;
+	fill: #adafb2;
+}
+
+.m-tool .itm:hover,
+.m-tool .user .name:hover,
+.m-winctrl .icn:hover {
+	color: #a5a7a8;
+	fill: @fc1;
+}
+
+.m-tool .dlding {
+	color: fade(#fff, 50%);
+}
+
+.m-tool .u-tip {
+	background: @icnRed;
+	border: 2px solid @themeC1;
+	color: fade(#fff, 80%);
+}
