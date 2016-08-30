@@ -1,0 +1,91 @@
+@import '~dark/color-variables';
+
+.m-player, .m-player .spk.z-silence:after {
+	background:url(./img/framebar_bg.png);
+}
+
+.m-player .prg-ply .ctrl.z-dis::before {
+	background-image: url(./img/loading_play.gif);
+	opacity: 0.8;
+}
+
+.m-player, .m-player .spk.z-silence:after {
+	background-color: @bgcBtmbar;
+}
+
+.m-player {
+	border-top: 1px solid @bdClr1;
+}
+
+.m-player svg {
+	fill: fade(#fff,40%);
+}
+
+.m-player .spk:hover svg, .m-player .type:hover svg, .m-player .list:hover svg {
+	fill: @fc3-hvr;
+}
+
+.m-player .btnc, .m-player .btnp {
+	background-color: transparent;
+	transition: background-color 0.2s ease-in;
+	border: 1px solid fade(#fff,30%);
+}
+
+.m-player .btnc:hover, .m-player .btnp:hover {
+	background-color: transparent;
+	border-color: fade(#fff,50%);
+}
+
+.m-player .prg .track {
+	background: fade(black, 30%) content-box;
+}
+
+.m-player .prg .download {
+	background: fade(white, 20%);
+}
+
+.m-player .prg .has {
+	background: @icnTheme;
+}
+
+.m-player .prg .ctrl {
+	background: #fff;
+}
+
+.m-player .prg .ctrl::after {
+	background: @icnTheme;
+}
+
+.m-player .prg-ply .ctrl:hover {
+	box-shadow: 0 0 6px fade(white, 35%);
+}
+
+.m-player .word {
+	border: 1px solid fade(@fc3, 70%);
+}
+
+.m-player .word.z-light {
+	background: @fc3;
+	border-color: @fc3;
+}
+
+.m-player .word:hover {
+	border-color: @fc3-hvr;
+}
+
+.m-player .word:hover svg {
+	fill: @fc3-hvr;
+}
+
+.m-player .list .num {
+	background: fade(#fff,5%);
+	color: @fc1;
+}
+
+.m-player .list,.m-player .list.z-show:hover {
+	color: @fc3;
+}
+
+.m-player .list.z-show,.m-player .list:hover {
+	color: @fc4;
+}

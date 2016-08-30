@@ -1,0 +1,262 @@
+.m-player svg {
+	width: 100%;
+	height: 100%;
+}
+
+.m-player {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 131;
+	height: 48px;
+}
+
+.m-player.z-hide {
+	bottom: -49px;
+}
+
+.m-player > div,.m-player > time {
+	position: absolute;
+	top: 50%;
+}
+
+.m-player .btnc {
+	width: 30px;
+	height: 30px;
+	box-sizing: border-box;
+	border-radius: 15px;
+}
+
+.m-player .btnc-prv {
+	left: 30px;
+}
+
+.m-player .btnc-nxt {
+	left: 142px;
+}
+
+.m-player .btnp {
+	width: 34px;
+	height: 34px;
+	box-sizing: border-box;
+	left: 84px;
+	border-radius: 17px;
+}
+
+.m-player time {
+	width: 35px;
+	margin-top: -6px;
+	line-height: 12px;
+}
+
+.m-player .now {
+	left: 200px;
+	text-align: right;
+}
+
+.m-player .all {
+	right: 294px;
+}
+
+.m-player .prg {
+	height: 4px;
+	padding: 4px 0;
+}
+
+.m-player .prg .track {
+	position: absolute;
+	left: 0px;
+	right: 0;
+	top: -2px;
+	height: 4px;
+	border-radius: 4px;
+	padding: 6px 0;
+}
+
+.m-player .prg .download {
+	position: absolute;
+	left: 0;
+	top: 4px;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	border-radius: 4px;
+	pointer-events: none;
+}
+
+.m-player .prg .has,.m-player .prg-spk .hastrack,.m-player .prg-spk .ctrlctrak {
+	position: absolute;
+	height: 4px;
+	text-align: right;
+	border-radius: 4px;
+	pointer-events: none;
+}
+
+.m-player .prg .ctrl {
+	position: absolute;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 50%;
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.m-player .prg .ctrl::after {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+}
+
+.m-player .prg-ply {
+	left: 248px;
+	right: 338px;
+}
+
+.m-player .prg-ply .ctrl {
+	width: 14px;
+	height: 14px;
+	box-sizing: border-box;
+	margin: -5px 0 0 -7px;
+}
+
+.m-player .prg-ply .ctrl.z-dis::before {
+	content: ' ';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 14px;
+	height: 14px;
+	margin: -7px;
+	border-radius: 50%;
+}
+
+.m-player .prg-ply .ctrl.z-dis::after {
+	display: none;
+}
+
+.m-player .prg-ply .ctrl::after {
+	width: 4px;
+	height: 4px;
+	margin: -2px 0 0 -2px;
+}
+
+.m-player .prg-ply .ctrl.z-dis::before {
+	background-repeat: no-repeat;
+}
+
+.m-player .prg-spk {
+	right: 153px;
+	width: 100px;
+}
+
+.m-player .prg-spk .hastrack {
+	display: block;
+	width: 100%;
+	height: 4px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.m-player .prg-spk .has {
+	top: 0;
+	left: 0;
+}
+
+.m-player .prg-spk .ctrl {
+	display: none;
+	width: 10px;
+	height: 10px;
+	margin-left: -5px;
+	margin-top: -4px;
+}
+
+.m-player .prg-spk .ctrl::after {
+	width: 4px;
+	height: 4px;
+	margin: -2px 0 0 -2px;
+}
+
+.m-player .prg-spk:hover .ctrl,.m-player .prg-spk.z-hvr .ctrl {
+	display: inline-block;
+}
+
+.m-player .spk {
+	right: 258px;
+	width: 16px;
+	height: 12px;
+}
+
+.m-player .spk.z-silence:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 8px;
+	width: 8px;
+	height: 12px;
+}
+
+.m-player .type,.m-player .type svg {
+	width: 18px;
+	height: 14px;
+}
+
+.m-player .type {
+	right: 113px;
+}
+
+.m-player .list {
+	position: absolute;
+	right: 8px;
+	width: 55px;
+	height: 16px;
+	line-height: 16px;
+}
+
+.m-player .list .icon {
+	position: relative;
+	z-index: 2;
+	width: 19px;
+	height: 17px;
+	margin: 0 -2px 0 0;
+}
+
+.m-player .list .num {
+	width: 32px;
+	height: 16px;
+	line-height: 17px;
+	border-radius: 0 8px 8px 0;
+	white-space: nowrap;
+	text-align: center;
+	text-indent: -2px;
+}
+
+.m-player .word {
+	position: absolute;
+	right: 79px;
+	width: 16px;
+	height: 16px;
+	box-sizing: border-box;
+}
+
+.m-player .word svg {
+	width: 16px;
+	height: 16px;
+	margin: -1px 0 0 -1px;
+}
+
+.m-player.z-shadow::after {
+	position: absolute;
+	width: 100%;
+	height: 16px;
+	left: 0;
+	top: -16px;
+	content: '';
+	pointer-events: none;
+}
+
+.m-player .bg {
+	top: 0;
+}

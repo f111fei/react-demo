@@ -37,7 +37,7 @@ const config = {
                 exclude: [themes]
             },
             {
-                test: /\.(eot|woff|ttf|png|svg)([\?]?.*)$/,
+                test: /\.(eot|woff|ttf|png|gif|svg)([\?]?.*)$/,
                 loader: 'file?name=[path][name].[ext]'
             }
         ]

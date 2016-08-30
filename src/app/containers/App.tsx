@@ -5,6 +5,8 @@ import {Link, RouteComponentProps} from 'react-router';
 import {AppStore} from 'app/store/state';
 import Header from '../components/header/Header';
 import SideBar from '../components/sidebar/SideBar';
+import BtmBar from '../components/btmBar/BtmBar';
+
 
 export interface AppProp extends RouteComponentProps<any, any> {
 	store: AppStore;
@@ -16,6 +18,7 @@ class App extends React.Component<AppProp, any> {
 			<div>
 				<Header/>
 				<SideBar/>
+				<BtmBar/>
 			</div>
 		);
 	}

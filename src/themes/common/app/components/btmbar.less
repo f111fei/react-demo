@@ -1,0 +1,105 @@
+@import '~common/color-variables';
+
+.m-player .prg-ply .ctrl.z-dis::before {
+	opacity: 0.6;
+}
+
+.m-player, .m-player .spk.z-silence:after {
+	background-color: @bgcBtmbar;
+	background-clip: padding-box;
+	transition: background 0.2s ease-in;
+}
+
+.m-player {
+	border-top: 1px solid @bdClr1;
+}
+
+.m-player svg {
+	fill: @fc3;
+}
+
+.m-player .spk:hover svg, .m-player .type:hover svg, .m-player .list:hover svg {
+	fill: @fc3-hvr;
+}
+
+.m-player .btnc, .m-player .btnp {
+	background-color: @themePlay;
+	transition: background-color 0.2s ease-in;
+}
+
+.m-player .btnc:hover, .m-player .btnp:hover {
+	background-color: @themePlay-hvr;
+}
+
+.m-player .btnc svg, .m-player .btnp svg {
+	fill: #fff;
+}
+
+.m-player .prg .track {
+	background: fade(#000, 6%) content-box;
+}
+
+.m-player .prg .download {
+	background: fade(#000, 15%);
+}
+
+.m-player .prg .has {
+	background: @themePlay;
+	transition: background 0.2s ease-in;
+}
+
+.m-player .prg .ctrl {
+	background: #fff;
+	border: 1px solid fade(#000, 25%);
+}
+
+.m-player .prg .ctrl::after {
+	background: @themePlay;
+}
+
+.m-player .prg-ply .ctrl:hover {
+	box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.m-player .word {
+	border: 1px solid fade(@fc3, 70%);
+}
+
+.m-player .word.z-light {
+	background: @fc3;
+	border-color: @fc3;
+}
+
+.m-player .word.z-light svg {
+	fill: #fff;
+}
+
+.m-player .word:hover {
+	background: none;
+	border-color: @fc3-hvr;
+}
+
+.m-player .word:hover svg {
+	fill: @fc3-hvr;
+}
+
+.m-player .list .num {
+	background: @bdClr1;
+	color: @fc1;
+}
+
+.m-player .list,.m-player .list.z-show:hover {
+	color: @fc3;
+}
+
+.m-player .list.z-show,.m-player .list:hover {
+	color: @fc4;
+}
+
+.m-player .list.z-show .listnum,.m-player .list:hover .listnum {
+	border-color: rgba(255,255,255,0.2);
+}
+
+.m-player .list.z-show:hover .listnum {
+	border-color: rgba(255, 255, 255, 0.1);
+}
