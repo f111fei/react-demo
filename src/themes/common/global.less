@@ -19,3 +19,32 @@ body,textarea,input,button,select,keygen,legend {
 ::-webkit-scrollbar-thumb:hover {
 	background: #cfcfd1;
 }
+
+.u-arrlay, div.u-arrlay {
+	background: @bgcArrLay padding-box; 
+	box-shadow: 0 0 0 1px fade(#000, 7%);
+	filter: drop-shadow(0 0 4px fade(#000, 30%));
+	-webkit-filter: drop-shadow(0 0 4px fade(#000, 30%));
+}
+
+.u-arrlay::before {
+	border-color: @bgcArrLay transparent transparent @bgcArrLay;
+	box-shadow: -1px -1px 0 0 fade(#000,10%);
+}
+
+.u-arrlay .msghd {
+	background: #eee;
+}
+
+.u-arrlay-msg::after {
+	background: -webkit-linear-gradient(rgba(251,252,253,0), rgba(251,252,253,0.9));
+}
+
+.u-arrlay .close, .u-arrlay .back {
+	fill: @fc4;
+	&:hover{fill: @fc3;}
+}
+
+.u-arrlay-chat::before {
+	border-color: #eee transparent transparent #eee;
+}
