@@ -20,6 +20,38 @@ body,textarea,input,button,select,keygen,legend {
 	background: #cfcfd1;
 }
 
+.s-fc1, a {
+	color: @fc1;
+}
+
+.s-fc2 {
+	color: @fc2;
+}
+
+.s-fc3 {
+	color:@fc3;
+}
+
+.s-fc4 {
+	color: @fc4;
+}
+
+.s-fc5 {
+	color: @fc5;
+}
+
+.s-fc6 {
+	color: @fc6;
+}
+
+.s-fc7 {
+	color: @fc7;
+}
+
+.s-fc8 {
+	color: @fc8;
+}
+
 .u-arrlay, div.u-arrlay {
 	background: @bgcArrLay padding-box; 
 	box-shadow: 0 0 0 1px fade(#000, 7%);
@@ -47,4 +79,49 @@ body,textarea,input,button,select,keygen,legend {
 
 .u-arrlay-chat::before {
 	border-color: #eee transparent transparent #eee;
+}
+
+.u-header {
+	border-bottom: 1px solid @bdClr1;
+	.date {
+		a { color:@fc5; }
+		a:hover, a.z-slt { color:@fc1sub; }
+		.line { color:@bdClr1; }
+	}
+}
+
+.u-stab li {
+	background: @bgcTab;
+	border-color: @bdcTab;
+	svg { fill: @fc4; }
+	&:hover { background: @bgcTab-hvr; }
+	&:hover svg { fill: @fc3; }
+}
+
+.u-stab li.z-sel:hover, .u-stab li.z-sel {
+	svg { fill: fade(#fff,80%); }
+	background: @bgcTab-sel;
+	border-color: @bgcTab-sel;
+}
+
+.u-ibtn1 {
+	background: @bgbtn1 padding-box;
+	border-color: @bgbtn1;
+	color: @fc8;
+}
+
+.u-ibtn1:not(.z-dis):hover {
+	background-color: @bgbtn1-hvr;
+	border-color: @bgbtn1-hvr;
+	color:@fc8;
+}
+
+.u-ibtn1.z-dis {
+	background-color: @bgbtn1-dis;
+	border-color: @bgbtn1-dis;
+	color: fade(@fc8,30%);
+}
+
+.u-ibtn1 svg {
+	fill:#fff;
 }
