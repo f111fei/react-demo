@@ -34,22 +34,22 @@ export default class SideBar extends React.Component<any, any> {
 						<h2 className="z-first">推荐</h2>
 						<ul className="sys">
 							<li className="fx">
-								<Link to="#/m/disc/rec">
+								<Link to="/m/disc/rec">
 									<SVGButton className="svg" href={svg.discover}/>发现音乐
 								</Link>
 							</li>
 							<li className="fm">
-								<Link to="#/m/fm">
+								<Link to="/m/fm">
 									<SVGButton className="svg" href={svg.fm}/>私人FM
 								</Link>
 							</li>
 							<li className="mv">
-								<Link to="#/m/mv/jingxuan">
+								<Link to="/m/mv/jingxuan">
 									<SVGButton className="svg" href={svg.mv}/>MV
 								</Link>
 							</li>
 							<li className="py">
-								<Link to="#/m/friend/home">
+								<Link to="/m/friend/home">
 									<SVGButton className="svg" href={svg.friend}/><span>朋友<i className="u-dot"></i></span>
 								</Link>
 							</li>
@@ -57,7 +57,7 @@ export default class SideBar extends React.Component<any, any> {
 						<h2>我的音乐</h2>
 						<ul className="sys" id="my-music-list">
 							<li className="bd">
-								<Link to="#/m/local/track">
+								<Link to="/m/local">
 									<SVGButton className="svg" href={svg.local}/>本地音乐
 								</Link>
 								<span className="state f-vc">
@@ -66,7 +66,7 @@ export default class SideBar extends React.Component<any, any> {
 								<span className="icn u-icn u-icn-scan"></span>
 							</li>
 							<li className="xz">
-								<Link to="#/m/offline/complete">
+								<Link to="/m/offline/complete">
 									<SVGButton className="svg" href={svg.dld}/>下载管理
 								</Link>
 								<span className="state f-vc">
@@ -74,7 +74,7 @@ export default class SideBar extends React.Component<any, any> {
 								</span>
 							</li>
 							<li className="cloud">
-								<Link to="#/m/cloud">
+								<Link to="/m/cloud">
 									<SVGButton classname="svg" href={svg.cloud}/>我的音乐云盘
 								</Link>
 								<span className="state f-vc">
@@ -82,17 +82,17 @@ export default class SideBar extends React.Component<any, any> {
 								</span>
 							</li>
 							<li className="art">
-								<Link to="#/m/fav/artist">
+								<Link to="/m/fav/artist">
 									<SVGButton classname="svg" href={svg.artist}/>我的歌手
 								</Link>
 							</li>
 							<li className="mv">
-								<Link to="#/m/fav/mv">
+								<Link to="/m/fav/mv">
 									<SVGButton classname="svg" href={svg.mv}/>我的MV
 								</Link>
 							</li>
 							<li className="rdi">
-								<Link to="#/m/fav/djradio">
+								<Link to="/m/fav/djradio">
 									<SVGButton classname="svg" href={svg.radio}/><span>我的电台<i className="u-dot"></i></span>
 								</Link>
 							</li>
@@ -113,7 +113,7 @@ export default class SideBar extends React.Component<any, any> {
 							<ul className="my" tabindex="1001"></ul>
 						</div>
 						<div className="import" style={{ display: "none" }}>
-							<Link to="#/m/import" className="btn u-ibtn5" title="从虾米音乐/豆瓣FM导入歌单">导入歌单
+							<Link to="/m/import" className="btn u-ibtn5" title="从虾米音乐/豆瓣FM导入歌单">导入歌单
 							</Link>
 							<p className="s-fc4">从虾米音乐/豆瓣FM导入歌单</p>
 						</div>

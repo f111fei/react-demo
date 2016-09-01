@@ -31,7 +31,7 @@ export default class Header extends React.Component<any, any> {
 		return (
 			<header className="g-hd">
 				<div className="m-logo no-drag">
-					<Link to="/inbox">
+					<Link to="/m/disc/rec">
 						<SVGButton href={svg.logo}/>
 					</Link>
 				</div>
@@ -58,7 +58,7 @@ export default class Header extends React.Component<any, any> {
 					<div className="user no-drag">
 						<div className="j-pl-click"></div>
 						<i className="u-tip u-tip-sml f-dn"></i>
-						<Link className="face u-face" to="#/m/personal/?uid=0">
+						<Link className="face u-face" to="/m/personal/?uid=0">
 							<div className="wrap">
 								<img src={defaultFace}/>
 							</div>
@@ -77,7 +77,7 @@ export default class Header extends React.Component<any, any> {
 						<SVGButton className="btn" href={svg.msg}/>
 						<span className="u-tip" style={{ display: "none" }}>0</span>
 					</div>
-					<Link to="#/m3/setting/" className="itm set no-drag" title="设置">
+					<Link to="/m3/setting/" className="itm set no-drag" title="设置">
 						<SVGButton className="btn" href={svg.set}/>
 					</Link>
 				</div>
