@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import {connect} from 'react-redux';
-import {Link, RouteComponentProps} from 'react-router';
+import {RouteComponentProps} from 'react-router';
 import {AppStore} from 'app/store/state';
 import Header from '../components/header/Header';
 import SideBar from '../components/sidebar/SideBar';
+import Content from '../components/content/Content';
 import BtmBar from '../components/btmBar/BtmBar';
 
 
@@ -17,7 +18,10 @@ class App extends React.Component<AppProp, any> {
 		return (
 			<div>
 				<Header/>
-				<SideBar/>
+				<div>
+					<SideBar/>
+					<Content children={this.props.children}/>
+				</div>
 				<BtmBar/>
 			</div>
 		);

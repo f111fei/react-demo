@@ -29,7 +29,7 @@ export default class Header extends React.Component<any, any> {
 
 	public render(): JSX.Element {
 		return (
-			<div className="g-hd">
+			<header className="g-hd">
 				<div className="m-logo no-drag">
 					<Link to="/inbox">
 						<SVGButton href={svg.logo}/>
@@ -82,7 +82,7 @@ export default class Header extends React.Component<any, any> {
 					</Link>
 				</div>
 				<WinCtrl/>
-			</div>
+			</header>
 		);
 	}
 }
