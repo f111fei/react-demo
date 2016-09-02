@@ -12,6 +12,11 @@ export function createRoutes(): React.ReactElement<any> {
 			<Route path="m">
 				<IndexRedirect to="local"/>
 				<Route path="local" component={LocalHome}>
+					<IndexRedirect to="track"/>
+					<Route path="track"/>
+					<Route path="artist"/>
+					<Route path="album"/>
+					<Route path="folder"/>
 				</Route>
 			</Route>
 		</Route>

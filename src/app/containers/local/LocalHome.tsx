@@ -1,6 +1,8 @@
 import './media/css/localhome.less';
 import * as React from 'react';
+import {RouteComponentProps} from 'react-router';
 import {SVGButton} from 'base/browser/ui/button/SVGButton';
+import {Nav, NavItem} from 'base/browser/ui/nav/Nav';
 
 function requireSVG(name: string): string {
 	return require('!!svg-sprite!./media/img/' + name + '.svg');
@@ -13,9 +15,23 @@ const svg = {
 	local_folder: requireSVG('local_folder')
 };
 
+export default class LocalHome extends React.Component<RouteComponentProps<any, any>, any> {
 
-export default class LocalHome extends React.Component<any, any> {
+	public static contextTypes: React.ValidationMap<any> = {
+		router: React.PropTypes.object.isRequired
+	};
+
+	public context: { router: ReactRouter.RouterOnContext };
+
+	private handleNavSelect(eventKey: string): void {
+		this.context.router.push(eventKey);
+	}
+
 	public render(): JSX.Element {
+		const {
+			location, children
+		} = this.props;
+
 		return (
 			<div className="n-local">
 				<div className="preload f-dn"></div>
@@ -27,25 +43,25 @@ export default class LocalHome extends React.Component<any, any> {
 							<a href="javascript:;" className="s-fc2 z-osx-hide">选择目录</a>
 						</div>
 					</div>
-					<ul className="tab u-stab u-stab-local">
-						<li title="列表">
+					<Nav className="tab" activeKey={location.pathname} onSelect={this.handleNavSelect.bind(this) }>
+						<NavItem title="列表" eventKey="/m/local/track">
 							<SVGButton href={svg.local_list}/>
-						</li>
-						<li title="歌手">
+						</NavItem>
+						<NavItem title="歌手" eventKey="/m/local/artist">
 							<SVGButton href={svg.local_artist}/>
-						</li>
-						<li title="专辑">
+						</NavItem>
+						<NavItem title="专辑" eventKey="/m/local/album">
 							<SVGButton href={svg.local_album}/>
-						</li>
-						<li className="z-osx-hide" title="文件夹">
+						</NavItem>
+						<NavItem className="z-osx-hide" title="文件夹" eventKey="/m/local/folder">
 							<SVGButton href={svg.local_folder}/>
-						</li>
-					</ul>
+						</NavItem>
+					</Nav>
 					<div className="scan">
 						<div className="itm a-ani a-dr6"></div>
 					</div>
 				</div>
-				<div></div>
+				{children}
 				<div className="n-lmadd">
 					<h2 className="s-fc1">请添加本地音乐</h2>
 					<p className="s-fc4">升级本地音乐为高品质音乐并和朋友分享！</p>
