@@ -104,3 +104,72 @@ body,textarea,input,button,select,keygen,legend {
 	border-color: @bgbtn1-dis;
 	color: fade(@fc8,30%);
 }
+
+.u-ibtn5 {
+	border-color: @bdClrBtn;
+	color: @fc1;
+	background: @bgbtn5 padding-box;
+}
+
+.u-ibtn5 svg {
+	fill: @fc3;
+}
+
+.u-ibtn5:not(.z-dis):hover {
+	background-color: @bgbtn5-hvr;
+}
+
+.u-ibtn5:not(.z-dis):hover svg {
+	fill: #adafb2;
+}
+
+.u-ibtn5.z-dis {
+	background: fade(@bgbtn5,7%);
+	color: fade(@fc1,30%);
+}
+
+.u-ibtn5.z-dis svg {
+	fill: fade(@fc3,30%);
+}
+
+.u-ibtn5.z-did svg {
+	fill: @icnTheme;
+}
+
+.u-ibtn5.z-did:hover svg {
+	fill: @icnTheme-hvr;
+}
+
+.u-ibtn5b, .u-ibtn5b .u-ibtn5, .u-ibtn5b .u-ibtn5:first-child {
+	border-color: @bdClrBtn;
+}
+
+.u-ibtn5b .u-ibtn5:first-child {
+	border-right-color: #0a0c10;
+}
+
+.u-lcsch {
+	background-color: fade(#fff,5%);
+	border-color: #141619;
+	fill: @fc3;
+}
+
+.u-lcsch input::-webkit-input-placeholder {
+	color: fade(#fff, 20%) !important;
+}
+
+.u-lcsch input:focus {
+	color: @fc3-hvr;
+}
+
+.u-lcsch input {
+	color: @fc1;
+}
+
+.u-lcsch .sch-btn svg {
+	fill: @fc3;
+}
+
+.u-lcsch .sch-btn:hover svg {
+	fill: @fc3-hvr;
+}

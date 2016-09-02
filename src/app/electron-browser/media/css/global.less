@@ -570,7 +570,13 @@ div.m-queuenotify {
 	line-height: 1em;
 }
 
-.u-ibtn1 {
+.u-ibtn,.u-ibtn5b {
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.u-ibtn1, .u-ibtn5 {
 	display: inline-block;
 	padding: 0 10px;
 	border: 1px solid;
@@ -578,6 +584,11 @@ div.m-queuenotify {
 	vertical-align: middle;
 	cursor: pointer;
 	text-align: center;
+}
+
+.u-ibtn, .u-ibtn5 {
+	height: 24px;
+	line-height: 24px;
 }
 
 .u-ibtn1 {
@@ -589,6 +600,98 @@ div.m-queuenotify {
 	height: 54px;
 	padding: 0 20px;
 	font-size: 16px;
+}
+
+.u-ibtn5 svg {
+	vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	margin: -2px 5px 0 0;
+}
+
+.u-ibtn5.z-dis {
+	cursor: default;
+}
+
+.u-ibtn5b {
+	border: 1px solid;
+	border-radius: 4px;
+}
+
+.u-ibtn5b .u-ibtn5 {
+	border: 0;
+}
+
+.u-ibtn5b .u-ibtn5:first-child {
+	border-radius: 4px 0 0 4px;
+	border-right: 1px solid;
+}
+
+.u-ibtn5b .u-ibtn5-addto {
+	border-radius: 0 4px 4px 0;
+}
+
+
+.u-lcsch {
+	position: relative;
+	width: 170px;
+	height: 22px;
+	line-height: 22px;
+	border-radius: 12px;
+	text-align: left;
+}
+
+.u-lcsch input {
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 4px 25px 4px 10px;
+	border: 0;
+	background-color: transparent;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.u-lcsch .sch-btn {
+	position: absolute;
+	top: 1px;
+	right: 6px;
+	width: 21px;
+	height: 20px;
+	pointer-events: none;
+}
+
+.u-lcsch .u-arrlay {
+	top: 41px;
+	margin-top: 0;
+}
+
+.u-lcsch input:-webkit-input-placeholder {
+	font-size: 12px;
+}
+
+.u-lcsch-s {
+	width: auto;
+	margin: 5px;
+	border-radius: 4px;
+}
+
+.u-lcsch-s input {
+	padding: 4px 21px 4px 6px;
+}
+
+.u-lcsch-s .sch-btn {
+	right: 2px;
+}
+
+.u-lcsch.z-edit .sch-btn {
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.g-wrap1 {
+	padding: 0;
 }
 
 .a-ani {

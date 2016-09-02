@@ -24,7 +24,9 @@ export default class LocalHome extends React.Component<RouteComponentProps<any, 
 	public context: { router: ReactRouter.RouterOnContext };
 
 	private handleNavSelect(eventKey: string): void {
-		this.context.router.push(eventKey);
+		if (eventKey !== this.props.location.pathname) {
+			this.context.router.push(eventKey);
+		}
 	}
 
 	public render(): JSX.Element {
