@@ -42,34 +42,33 @@ export default class LocalTrack extends React.Component<RouteComponentProps<any,
 						</a>
 					</div>
 				</div>
-				{/**
 				<div className="m-plylist m-plylist-local m-plylist-sort m-plylist_local-track" tabindex="1000">
 					<div className="head f-cb">
 						<div className="fix">
 							<div className="th col"></div>
 						</div>
 						<div className="flow">
-							<div className="th col">音乐标题
+							<div className="th col" data-res-action="sort">音乐标题
 								<SVGButton className="u-icn u-icn-sort-hvr" href={svg.sort_hvr}/>
 								<SVGButton className="u-icn u-icn-sort" href={svg.sort}/>
 							</div>
 							<span className="js-resize">&nbsp; </span>
-							<div className="th col">歌手
+							<div className="th col" data-res-action="sort">歌手
 								<SVGButton className="u-icn u-icn-sort-hvr" href={svg.sort_hvr}/>
 								<SVGButton className="u-icn u-icn-sort" href={svg.sort}/>
 							</div>
 							<span className="js-resize">&nbsp; </span>
-							<div className="th col">专辑
+							<div className="th col" data-res-action="sort">专辑
 								<SVGButton className="u-icn u-icn-sort-hvr" href={svg.sort_hvr}/>
 								<SVGButton className="u-icn u-icn-sort" href={svg.sort}/>
 							</div>
 							<span className="js-resize">&nbsp; </span>
-							<div className="th col">时长
+							<div className="th col" data-res-action="sort">时长
 								<SVGButton className="u-icn u-icn-sort-hvr" href={svg.sort_hvr}/>
 								<SVGButton className="u-icn u-icn-sort" href={svg.sort}/>
 							</div>
 							<span className="js-resize">&nbsp; </span>
-							<div className="th col">大小
+							<div className="th col" data-res-action="sort">大小
 								<SVGButton className="u-icn u-icn-sort-hvr" href={svg.sort_hvr}/>
 								<SVGButton className="u-icn u-icn-sort" href={svg.sort}/>
 							</div>
@@ -77,7 +76,6 @@ export default class LocalTrack extends React.Component<RouteComponentProps<any,
 					</div>
 					<ul></ul>
 				</div>
-				*/}
 			</div>
 		);
 	}

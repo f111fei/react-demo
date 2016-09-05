@@ -3,3 +3,31 @@
 .u-ibtn5-ply svg, span.u-ibtn5-ply:not(.z-dis):hover svg {
 	fill: @icnRed;
 }
+
+//PlayList
+.n-local .m-plylist .head {
+	border-top: 1px solid @bdClr1;
+}
+
+.m-plylist .head {
+	border-bottom: 1px solid @bdClr1;
+	color: @fc3;
+	fill: @fc3;
+}
+
+.m-plylist .th:after {
+	border-left: 1px solid @bdClr1;
+}
+
+.m-plylist-sort .th[data-res-action=sort]:hover {
+	background: fade(@bgc3, 6%);
+}
+
+.m-plylist-sort .th[data-res-action=sort]:active {
+	background: -webkit-linear-gradient(@bdClr1,rgba(255,255,255,0.1))
+}
+
+.m-plylist-sort .th.asc,.m-plylist-sort .th.desc {
+	background: -webkit-linear-gradient(rgba(7,1,1,0.07),rgba(255,255,255,0.07));
+}
+//PlayList
