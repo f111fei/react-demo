@@ -10,6 +10,14 @@ const publicPath = outPath.replace(/\\/g, '/') + '/';
 const extractStyle = new ExtractTextPlugin('./app/electron-browser/media/main.css');
 const themes = path.join(__dirname, './src/themes');
 
+const isThemeStyle = function (path, name) {
+    if (!name) {
+        return /themes(\/|\\).*.less$/.test(path);
+    } else {
+        return new RegExp('themes(\/|\\\\)' + name + '(\/|\\\\).*.less$').test(path);
+    }
+}
+
 const config = {
     devtool: 'source-map',
     target: 'electron',
@@ -32,9 +40,8 @@ const config = {
                 loader: extractStyle.extract('css')
             },
             {
-                test: /\.less$/,
-                loader: extractStyle.extract('css!less'),
-                exclude: [themes]
+                test: function (path) { return (/.*.less$/.test(path) && (!isThemeStyle(path))) },
+                loader: extractStyle.extract('css!less')
             },
             {
                 test: /\.(eot|woff|ttf|png|gif|svg)([\?]?.*)$/,
@@ -75,11 +82,8 @@ fs.readdirSync(themes).forEach(function (name) {
     }
     const extractPlugin = new ExtractTextPlugin('./themes/' + name + '/index.css');
     const themeLoader = {
-        test: /\.less$/,
-        loader: extractPlugin.extract('css!less'),
-        include: [
-            path.join(themes, name)
-        ]
+        test: function (path) { return isThemeStyle(path, name) },
+        loader: extractPlugin.extract('css!less')
     };
 
     config.plugins.push(extractPlugin);
