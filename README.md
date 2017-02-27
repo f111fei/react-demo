@@ -4,10 +4,8 @@
 
 ```
 npm install webpack -g
-npm install typings -g
 npm install electron-prebuilt -g
 npm install
-typings install
 npm run compile
 ```
 

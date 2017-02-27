@@ -9,5 +9,6 @@
 		"**/node_modules": true
 	},
 	"tslint.enable": true,
-	"tslint.validateWithDefaultConfig": true
+	"tslint.validateWithDefaultConfig": true,
+	"typescript.tsdk": "./node_modules/typescript/lib"
 }

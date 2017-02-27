@@ -75,7 +75,7 @@ export default class SideBar extends React.Component<any, any> {
 							</li>
 							<li className="cloud">
 								<Link to="/m/cloud">
-									<SVGButton classname="svg" href={svg.cloud}/>我的音乐云盘
+									<SVGButton className="svg" href={svg.cloud}/>我的音乐云盘
 								</Link>
 								<span className="state f-vc">
 									<SVGButton href={svg.list_pause}/>
@@ -83,17 +83,17 @@ export default class SideBar extends React.Component<any, any> {
 							</li>
 							<li className="art">
 								<Link to="/m/fav/artist">
-									<SVGButton classname="svg" href={svg.artist}/>我的歌手
+									<SVGButton className="svg" href={svg.artist}/>我的歌手
 								</Link>
 							</li>
 							<li className="mv">
 								<Link to="/m/fav/mv">
-									<SVGButton classname="svg" href={svg.mv}/>我的MV
+									<SVGButton className="svg" href={svg.mv}/>我的MV
 								</Link>
 							</li>
 							<li className="rdi">
 								<Link to="/m/fav/djradio">
-									<SVGButton classname="svg" href={svg.radio}/><span>我的电台<i className="u-dot"></i></span>
+									<SVGButton className="svg" href={svg.radio}/><span>我的电台<i className="u-dot"></i></span>
 								</Link>
 							</li>
 						</ul>
@@ -104,13 +104,13 @@ export default class SideBar extends React.Component<any, any> {
 									<SVGButton href={svg.down}/>
 								</span>
 							</h2>
-							<ul className="my" tabindex="1001"></ul>
+							<ul className="my" tabIndex={1001}></ul>
 							<h2>收藏的歌单
 								<span className="ctrl f-pa f-cp" title="收起">
 									<SVGButton href={svg.down}/>
 								</span>
 							</h2>
-							<ul className="my" tabindex="1001"></ul>
+							<ul className="my" tabIndex={1001}></ul>
 						</div>
 						<div className="import" style={{ display: "none" }}>
 							<Link to="/m/import" className="btn u-ibtn5" title="从虾米音乐/豆瓣FM导入歌单">导入歌单

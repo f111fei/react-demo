@@ -42,7 +42,7 @@ export default class LocalTrack extends React.Component<RouteComponentProps<any,
 						</a>
 					</div>
 				</div>
-				<div className="m-plylist m-plylist-local m-plylist-sort m-plylist_local-track" tabindex="1000">
+				<div className="m-plylist m-plylist-local m-plylist-sort m-plylist_local-track" tabIndex={1000}>
 					<div className="head f-cb">
 						<div className="fix">
 							<div className="th col"></div>

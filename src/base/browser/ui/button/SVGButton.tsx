@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {withoutProperties} from 'base/common/objects';
 
-export interface SVGButtonProps extends React.SVGAttributes {
+export interface SVGButtonProps extends React.SVGAttributes<any> {
 	href: string;
 }
 

@@ -1,6 +1,6 @@
 import './media/css/localhome.less';
 import * as React from 'react';
-import {RouteComponentProps} from 'react-router';
+import {RouteComponentProps, InjectedRouter} from 'react-router';
 import {SVGButton} from 'base/browser/ui/button/SVGButton';
 import {Nav, NavItem} from 'base/browser/ui/nav/Nav';
 
@@ -21,7 +21,7 @@ export default class LocalHome extends React.Component<RouteComponentProps<any, 
 		router: React.PropTypes.object.isRequired
 	};
 
-	public context: { router: ReactRouter.RouterOnContext };
+	public context: { router: InjectedRouter };
 
 	private handleNavSelect(eventKey: string): void {
 		if (eventKey !== this.props.location.pathname) {
