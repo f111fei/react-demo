@@ -6,7 +6,7 @@ import {IpcService} from './ipc';
 const index = path.join(rootPath, './out/app/electron-browser/index.html'); // app/src/ directory
 
 // Browser Window options
-const mainWindowOption: Electron.BrowserWindowOptions = {
+const mainWindowOption: Electron.BrowserWindowConstructorOptions = {
 	title: pkg.name,
 	backgroundColor: '#222225',  //TODO: read from theme config.
 	width: 1022,

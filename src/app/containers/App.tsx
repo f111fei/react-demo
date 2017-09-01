@@ -32,7 +32,7 @@ class App extends React.Component<AppProp & RouteComponentProps<any, any>, any> 
 
 const mapStateToProps: MapStateToProps<AppProp, any> = (state: AppStore): AppProp => {
 	return {
-		store: _.assign<AppStore>({}, state)
+		store: _.assign({}, state)
 	};
 };
 
