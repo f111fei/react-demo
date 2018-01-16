@@ -5,7 +5,7 @@ import {SVGButton} from 'base/browser/ui/button/SVGButton';
 import {Nav, NavItem} from 'base/browser/ui/nav/Nav';
 
 function requireSVG(name: string): string {
-	return require('!!svg-sprite!./media/img/' + name + '.svg');
+	return require('!!svg-sprite-loader!./media/img/' + name + '.svg');
 }
 
 const svg = {

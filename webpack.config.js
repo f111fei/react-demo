@@ -23,29 +23,33 @@ const config = {
     target: 'electron',
     context: path.join(__dirname, 'src'),
     resolve: {
-        extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
-        root: [
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        modules: [
+            'node_modules',
             path.join(__dirname, './src'),
             themes
         ]
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.ts(x?)$/,
-                loader: 'ts'
+                loader: 'awesome-typescript-loader',
+                options: {
+                    configFileName: './src/tsconfig.json'
+                }
             },
             {
                 test: /\.css$/,
-                loader: extractStyle.extract('css')
+                loader: extractStyle.extract('css-loader')
             },
             {
                 test: function (path) { return (/.*.less$/.test(path) && (!isThemeStyle(path))) },
-                loader: extractStyle.extract('css!less')
+                loader: extractStyle.extract('css-loader!less-loader')
             },
             {
                 test: /\.(eot|woff|ttf|png|gif|svg)([\?]?.*)$/,
-                loader: 'file?name=[path][name].[ext]'
+                loader: 'file-loader?name=[path][name].[ext]'
             }
         ]
     },
@@ -83,11 +87,11 @@ fs.readdirSync(themes).forEach(function (name) {
     const extractPlugin = new ExtractTextPlugin('./themes/' + name + '/index.css');
     const themeLoader = {
         test: function (path) { return isThemeStyle(path, name) },
-        loader: extractPlugin.extract('css!less')
+        loader: extractPlugin.extract('css-loader!less-loader')
     };
 
     config.plugins.push(extractPlugin);
-    config.module.loaders.push(themeLoader);
+    config.module.rules.push(themeLoader);
 });
 
 module.exports = config;

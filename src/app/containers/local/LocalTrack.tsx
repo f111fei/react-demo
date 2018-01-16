@@ -4,7 +4,7 @@ import {RouteComponentProps} from 'react-router';
 import {SVGButton} from 'base/browser/ui/button/SVGButton';
 
 function requireSVG(name: string): string {
-	return require('!!svg-sprite!./media/img/' + name + '.svg');
+	return require('!!svg-sprite-loader!./media/img/' + name + '.svg');
 }
 
 const svg = {
