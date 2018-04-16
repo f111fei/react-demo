@@ -1,5 +1,6 @@
-var path = require('path');
-var fs = require('fs');
+import * as path from 'path';
+import * as fs from 'fs';
+import * as webpack from 'webpack';
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -10,17 +11,18 @@ const publicPath = outPath.replace(/\\/g, '/') + '/';
 const extractStyle = new ExtractTextPlugin('./app/electron-browser/media/main.css');
 const themes = path.join(__dirname, './src/themes');
 
-const isThemeStyle = function (path, name) {
+const isThemeStyle = function (path: string, name?: string) {
     if (!name) {
         return /themes(\/|\\).*.less$/.test(path);
     } else {
         return new RegExp('themes(\/|\\\\)' + name + '(\/|\\\\).*.less$').test(path);
     }
-}
+};
 
-const config = {
+const config: webpack.Configuration = {
     devtool: 'source-map',
     target: 'electron',
+    stats: "errors-only",
     context: path.join(__dirname, 'src'),
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -44,7 +46,7 @@ const config = {
                 loader: extractStyle.extract('css-loader')
             },
             {
-                test: function (path) { return (/.*.less$/.test(path) && (!isThemeStyle(path))) },
+                test: function (path) { return (/.*.less$/.test(path) && (!isThemeStyle(path))); },
                 loader: extractStyle.extract('css-loader!less-loader')
             },
             {
@@ -86,12 +88,12 @@ fs.readdirSync(themes).forEach(function (name) {
     }
     const extractPlugin = new ExtractTextPlugin('./themes/' + name + '/index.css');
     const themeLoader = {
-        test: function (path) { return isThemeStyle(path, name) },
+        test: function (path) { return isThemeStyle(path, name); },
         loader: extractPlugin.extract('css-loader!less-loader')
     };
 
     config.plugins.push(extractPlugin);
-    config.module.rules.push(themeLoader);
+    (<any>config.module).rules.push(themeLoader);
 });
 
 module.exports = config;

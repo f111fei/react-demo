@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {withoutProperties} from 'base/common/objects';
 
 export interface SVGButtonProps extends React.SVGAttributes<any> {
 	href: string;
@@ -7,9 +6,9 @@ export interface SVGButtonProps extends React.SVGAttributes<any> {
 
 export class SVGButton extends React.Component<SVGButtonProps, any> {
 	public render(): JSX.Element {
-		const elementProps = withoutProperties(this.props, ['href']);
+		const { href, ...props } = this.props;
 		return (
-			<svg {...elementProps}><use xlinkHref={this.props.href}></use></svg>
+			<svg {...props}><use xlinkHref={href}></use></svg>
 		);
 	}
 }
